@@ -23,7 +23,7 @@ public class BusPaymentSystem {
             System.out.println("Have a nice trip!");
             if(count == 1 && wallet < busPayment){
                 System.out.println("New balance: " + wallet);
-;            } else {
+            } else {
                 wallet = wallet - busPayment;
                 System.out.println("New balance: " + wallet);
             }
