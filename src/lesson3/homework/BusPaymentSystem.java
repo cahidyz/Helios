@@ -29,11 +29,12 @@ public class BusPaymentSystem {
             }
             if(busPayment > wallet){
                 System.out.print("Refill wallet balance: ");
-                wallet = input.nextDouble();
+                double newWallet = input.nextDouble();
+                wallet = newWallet + wallet;
                 System.out.println("Your current balance is: " + wallet);
-                if(wallet == 0) busPermit = false;
+                if(busPayment > wallet) busPermit = false;
             }
         }while(busPermit);
-        System.out.println("Sorry, you need to update your balance.");
+        System.out.println("Sorry, you had to update your balance.");
     }
 }
