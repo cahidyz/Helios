@@ -1,5 +1,4 @@
 package lesson3.homework;
-
 import java.util.Scanner;
 
 public class BusPaymentSystem {
@@ -21,11 +20,11 @@ public class BusPaymentSystem {
             System.out.println("Entry number: " + count);
             System.out.println("You are entering bus...");
             System.out.println("Have a nice trip!");
-            if(count == 1 && wallet < busPayment){
-                System.out.println("New balance: " + wallet);
+            if(count == 1){
+                System.out.println("New balance: " + wallet +"AZN");
             } else {
                 wallet = wallet - busPayment;
-                System.out.println("New balance: " + wallet);
+                System.out.println("New balance: " + wallet +"AZN");
             }
             if(busPayment > wallet){
                 System.out.print("Refill wallet balance: ");
