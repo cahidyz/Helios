@@ -138,8 +138,10 @@ public class StudentManagementSystem {
                     System.out.print("Enter student name: ");
                     String searchName = input.next();
                     System.out.println("-----------------------------");
+                    boolean studentFound = false;
                     for (int i = 0; i < numOfStudents; i++) {
                         if(searchName.equalsIgnoreCase(listOfNames[i])){
+                            studentFound = true;
                             System.out.println("Student found!");
                             System.out.println("Displaying results..");
                             System.out.println("-----------------------------");
@@ -149,7 +151,8 @@ public class StudentManagementSystem {
                             System.out.println("Grade by letter: " + gradesLetter[i]);
                             System.out.println("Status: " + ((status[i]) ? "Passed" : "Failed"));
                             System.out.println("-----------------------------");
-                        } else {
+                        }
+                        if (studentFound == false) {
                             System.out.println("Student not found!");
                         }
                     }
