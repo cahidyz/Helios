@@ -1,6 +1,6 @@
-package lesson4.task;
+package lesson5.tasks;
 
-public class Task7 {
+public class Task2 {
     public static void main(String[] args) {
         int[][] arr = new int[2][2];
         arr[0][0] = 11;

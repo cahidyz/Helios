@@ -1,8 +1,6 @@
-package lesson4.task;
+package lesson5.tasks;
 
-import java.util.Scanner;
-
-public class Task6 {
+public class Task1 {
     public static void main(String[] args) {
         int[][] arr = new int[2][2];
         arr[0][0] = 11;
