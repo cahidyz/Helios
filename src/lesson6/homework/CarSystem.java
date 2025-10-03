@@ -6,7 +6,6 @@ public class CarSystem {
     public static void main(String[] args) {
     CarPrint carPrint = new CarPrint();
     ScannerForPrint scan = new ScannerForPrint();
-    scan.scannerTime();
 
 
     Manufacturer manufacturer = new Manufacturer("Mercedes", 1926, "Germany");

@@ -36,7 +36,7 @@ public class Car extends Manufacturer {
         return model + " | "
                 + manufacturer.getName() + " | "
                 + productionYear + " | "
-                + (engineSize / 1000.0) + "L | "
+                + engineSize  + "L | "
                 + fuelType + " | $"
                 + (price / 1000.0) + "K";
     }
