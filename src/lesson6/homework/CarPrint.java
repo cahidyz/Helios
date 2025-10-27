@@ -2,39 +2,47 @@ package lesson6.homework;
 
 public class CarPrint {
 
-    void printManufacturers(Manufacturer[] manufacturers) {
-        System.out.println("=== Manufacturer Info ===");
-        for (Manufacturer m : manufacturers) {
-            System.out.println(m);
+    /**
+     * Prints all cars in a given array.
+     */
+    public void printAllCars(Car[] cars) {
+        System.out.println("\n--- All Cars ---");
+        for (Car car : cars) {
+            System.out.println(car);
         }
-        System.out.println();
     }
 
-    void printCar(Car[] cars) {
-        System.out.println("=== Car Catalog ===");
-        for (Car c : cars) {
-            System.out.println(c);
+    /**
+     * Prints only the cars made by manufacturers from a specific country.
+     */
+    public void printCarsByCountry(String country, Car[] cars) {
+        System.out.println("\n--- Cars from " + country + " ---");
+        int count = 0;
+        for (Car car : cars) {
+            if (car.getManufacturer().getCountry().equalsIgnoreCase(country)) {
+                System.out.println(car);
+                count++;
+            }
         }
-        System.out.println();
+        if (count == 0) {
+            System.out.println("No cars found from this country.");
+        }
     }
 
-    void printWithFuelType(String fuelType, Car[] cars) {
-        System.out.println("=== " + fuelType + " Cars ===");
+    /**
+     * Prints only the cars that match a specific fuel type.
+     */
+    public void printCarsByFuelType(String fuelType, Car[] cars) {
+        System.out.println("\n--- Cars with Fuel Type: " + fuelType + " ---");
+        int count = 0;
         for (Car car : cars) {
             if (car.getFuelType().equalsIgnoreCase(fuelType)) {
                 System.out.println(car);
+                count++;
             }
         }
-        System.out.println();
-    }
-
-    void printWithCountry(String country, Car[] cars) {
-        System.out.println("=== " + country + " Manufacturer Cars ===");
-        for (Car car : cars) {
-            if (car.getCountry().equalsIgnoreCase(country)) {
-                System.out.println(car);
-            }
+        if (count == 0) {
+            System.out.println("No cars found with this fuel type.");
         }
-        System.out.println();
     }
 }

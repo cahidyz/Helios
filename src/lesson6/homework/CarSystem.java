@@ -1,34 +1,52 @@
 package lesson6.homework;
 
-import java.util.Scanner;
-
 public class CarSystem {
+
     public static void main(String[] args) {
-    CarPrint carPrint = new CarPrint();
-    ScannerForPrint scan = new ScannerForPrint();
+        ScannerForPrint inputHandler = new ScannerForPrint();
+        CarPrint carPrinter = new CarPrint();
 
+        // --- Create Manufacturers ---
+        int numManufacturers = inputHandler.getNumberOfItems("manufacturers");
+        Manufacturer[] manufacturers = new Manufacturer[numManufacturers];
 
-    Manufacturer manufacturer = new Manufacturer("Mercedes", 1926, "Germany");
-    Car mercedesE = new Car("E-Class", manufacturer, 2015, 3.2, "Petrol", 50000);
-    Car mercedesC = new Car("C-Class", manufacturer, 2012, 2.2, "Petrol", 30000);
-    Manufacturer manufacturer1 = new Manufacturer("BYD", 1995, "China");
-    Car byd = new Car("ATTO3", manufacturer1, 2020, 2.1, "Electrical", 25000);
+        for (int i = 0; i < manufacturers.length; i++) {
+            System.out.println("\n--- Entering Manufacturer #" + (i + 1) + " ---");
+            manufacturers[i] = inputHandler.createManufacturer();
+        }
 
-    Car[] car = new Car[3];
-    car[0] = mercedesE;
-    car[1] = mercedesC;
-    car[2] = byd;
+        // --- Create Cars ---
+        int numCars = inputHandler.getNumberOfItems("cars");
+        Car[] cars = new Car[numCars];
 
-    Manufacturer[] man = new Manufacturer[2];
-    man[0] = manufacturer;
-    man[1] = manufacturer1;
+        for (int i = 0; i < cars.length; i++) {
+            System.out.println("\n--- Entering Car #" + (i + 1) + " ---");
+            cars[i] = inputHandler.createCar(manufacturers);
+        }
 
-    carPrint.printManufacturers(man);
+        // --- Print Results ---
+        System.out.println("\n--- Data Entry Complete! ---");
+        System.out.println("\n--- All Manufacturers ---");
+        for (Manufacturer m : manufacturers) {
+            System.out.println(m);
+        }
 
-    carPrint.printCar(car);
+        System.out.println("\n--- All Cars ---");
+        for (Car c : cars) {
+            System.out.println(c);
+        }
 
-    carPrint.printWithFuelType("Petrol", car);
+        // --- Print Filtered Results ---
+        System.out.println("\n--- Now let's filter the results ---");
+        System.out.print("Enter a country to filter by: ");
+        String countryFilter = inputHandler.getString();
+        carPrinter.printCarsByCountry(countryFilter, cars);
+        System.out.println();
+        System.out.print("Enter a fuel type to filter by: ");
+        String fuelFilter = inputHandler.getString();
+        carPrinter.printCarsByFuelType(fuelFilter, cars);
 
-    carPrint.printWithCountry("Germany", car);
+        // --- Cleanup ---
+        inputHandler.close();
     }
 }

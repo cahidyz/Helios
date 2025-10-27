@@ -10,7 +10,6 @@ public class Car extends Manufacturer {
 
     public Car(String model, Manufacturer manufacturer, int productionYear, double engineSize, String fuelType, int price) {
         super(manufacturer.name, manufacturer.foundationYear, manufacturer.country);
-        this.name = name;
         this.model = model;
         this.manufacturer = manufacturer;
         this.productionYear = productionYear;
