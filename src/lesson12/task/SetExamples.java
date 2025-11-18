@@ -1,4 +1,4 @@
-package lesson12;
+package lesson12.task;
 
 import java.util.Comparator;
 import java.util.LinkedHashSet;

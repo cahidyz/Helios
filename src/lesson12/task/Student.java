@@ -1,4 +1,4 @@
-package lesson12;
+package lesson12.task;
 
 class Student implements Comparable<Student> {
     private String name;

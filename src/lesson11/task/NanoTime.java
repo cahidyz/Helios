@@ -1,4 +1,4 @@
-package lesson11;
+package lesson11.task;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
